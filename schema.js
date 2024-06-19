@@ -1,6 +1,7 @@
 export const typeDefs = `#graphql
 
     type User {
+        id: ID!
         uid: ID!
         srcID: ID!
         name: String!
@@ -11,6 +12,7 @@ export const typeDefs = `#graphql
         rollNumber: String!
         idCardPhoto: String!
         tSize: String!
+        createdAt: String!
     }
 
     type Query {
@@ -20,11 +22,13 @@ export const typeDefs = `#graphql
     }
 
     type Mutation {
-        createUser(user: AddUserInput!): User
+        createUser(user: UserCreateInputType!): User
     }
 
-    input AddUserInput {
+    input UserCreateInputType {
+        uid: String!
         aicheRegID: String!
+        createdAt: String!
         email: String!
         tSize: String!
         name: String!

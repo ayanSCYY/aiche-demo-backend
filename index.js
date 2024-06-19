@@ -21,7 +21,7 @@ const resolvers = {
     Mutation: {
         createUser(_, args) {
             const newUser = {
-                uid: String(db.users.length + 1),
+                id: String(db.users.length + 1),
                 srcID: String(db.users.length + 1),
                 ...args.user,
             };
