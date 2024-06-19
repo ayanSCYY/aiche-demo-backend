@@ -22,8 +22,10 @@ const resolvers = {
         createUser(_, args) {
             const newUser = {
                 uid: String(db.users.length + 1),
+                srcID: String(db.users.length + 1),
                 ...args.user,
             };
+
             db.users.push(newUser);
             return newUser;
         },
