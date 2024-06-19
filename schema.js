@@ -24,7 +24,6 @@ export const typeDefs = `#graphql
 
     input AddUserInput {
         aicheRegID: String!
-        uid: String!
         email: String!
         tSize: String!
         name: String!
