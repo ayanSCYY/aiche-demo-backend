@@ -14,12 +14,12 @@ const resolvers = {
             return db.users;
         },
         user(_, args) {
-            return db.users.find((user) => user.id === args.id);
+            return db.users.find((user) => user.uid === args.uid);
         },
     },
 
     Mutation: {
-        addUser(_, args) {
+        createUser(_, args) {
             const newUser = {
                 id: String(db.users.length + 1),
                 ...args.user,

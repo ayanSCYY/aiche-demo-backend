@@ -1,35 +1,36 @@
 export const typeDefs = `#graphql
 
     type User {
-        id: ID!
+        uid: ID!
         name: String!
         email: String!
-        phone: String!
-        aicheID: String!
+        mobile: String!
+        aicheRegID: String!
         college: String!
-        rollNo: String!
-        idCard: String!
-        tShirtSize: String!
+        rollNumber: String!
+        idCardPhoto: String!
+        tSize: String!
     }
 
     type Query {
-        user(id: ID!): User
+        user(uid: ID!): User
         users: [User!]!
 
     }
 
     type Mutation {
-        addUser(user: AddUserInput!): User
+        createUser(user: AddUserInput!): User
     }
 
     input AddUserInput {
-        name: String!
+        aicheRegID: String!
+        uid: String!
         email: String!
-        phone: String!
-        aicheID: String!
+        tSize: String!
+        name: String!
+        mobile: String!
         college: String!
-        rollNo: String!
-        idCard: String!
-        tShirtSize: String!
+        rollNumber: String!
+        idCardPhoto: String!
     }
 `;
