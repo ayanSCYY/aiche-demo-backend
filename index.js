@@ -13,7 +13,7 @@ const resolvers = {
         users() {
             return db.users;
         },
-        user(_, args) {
+        getUser(_, args) {
             return db.users.find((user) => user.uid === args.uid);
         },
     },
