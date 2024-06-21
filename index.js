@@ -7,26 +7,28 @@ import db from "./db.js";
 // types
 import { typeDefs } from "./schema.js";
 
+let userDetails = db.users;
+
 // resolvers
 const resolvers = {
     Query: {
         users() {
-            return db.users;
+            return userDetails;
         },
         getUser(_, args) {
-            return db.users.find((user) => user.uid === args.uid);
+            return userDetails.find((user) => user.uid === args.uid);
         },
     },
 
     Mutation: {
         createUser(_, args) {
             const newUser = {
-                id: String(db.users.length + 1),
-                srcID: String(db.users.length + 1),
+                id: String(userDetails.length + 1),
+                srcID: String(userDetails.length + 1),
                 ...args.user,
             };
 
-            db.users.push(newUser);
+            userDetails.push(newUser);
             return newUser;
         },
     },
